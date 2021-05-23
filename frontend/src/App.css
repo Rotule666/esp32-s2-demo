@@ -1,0 +1,106 @@
+:root {
+  --top-logo-space: 130px;
+  --bottom-space: 100px;
+  --content-width: 1200px;
+  --border-width: 3px;
+}
+
+.App {
+  margin: 0;
+  height: 100%;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gbackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background-color: grey;
+}
+
+.top-logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  height: 130px;
+}
+
+.outer-main-content {
+  overflow: hidden;
+
+  position: absolute;
+  width: var(--content-width);
+  height: calc(100vh - var(--top-logo-space) - var(--bottom-space));
+  left: 0;
+  right: 0;
+  margin: auto;
+
+  margin-top: var(--top-logo-space);
+
+  border-radius: 10px;
+
+  background-color: darkgrey;
+
+  border-style: solid;
+  border-width: var(--border-width);
+  border-color: black;
+}
+
+.main-content {
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  /* -6px for the scrollbar to show correctly because of the 3px borders */
+  width: calc(var(--content-width) - (2 * var(--border-width)));
+  height: calc(100vh - var(--top-logo-space) - var(--bottom-space));
+  border-radius: 8px;
+  text-align: center;
+}
+
+.bottom-note {
+  position: absolute;
+  text-align: left;
+  width: var(--content-width);
+  height: var(--bottom-space);
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: calc(100vh - var(--bottom-space));
+}
+
+/* Mobile/small screen/windows*/
+/* var(--content-width) doesn't work here... */
+@media screen and (max-width: 1200px) {
+  .outer-main-content,
+  .main-content,
+  .bottom-note {
+    width: 100%;
+  }
+}
